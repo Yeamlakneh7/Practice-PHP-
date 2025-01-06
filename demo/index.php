@@ -6,42 +6,25 @@
     <title>Demo</title>
 </head>
 <body>
-    <!-- <h1>
-        <?php 
-            $greetings = "Hello";
-            $person = "Everyone";
-            echo $greetings . " World" . "<br>"; 
-            echo $greetings . " " . "World" . "<br>";
-            echo "$greetings World" . "<br>";
-            echo $greetings . " " . $person;
-            
-        ?>
-    </h1> -->
-    <!-- <h2>
-        <?php 
-            echo "with Laracast";
-        ?>
-    </h2> -->
 
-    <?php 
-        $name = "The Holiness of God";
-        $read = true;
-
-        if ($read) {
-            $message = "You have read $name.";
-        }else {
-            $message = "You have NOT read $name.";
-        }
-    ?>
-
-    
-    <h1 style="display: grid; place-items: center; height: 100vh; font-family: serif;">
-    <?php 
-        echo $message . "<br>" . "<br>";
-    ?>
-    <?=$message?>
-
+    <h1>
+        Recommended Books
     </h1>
+
+    <?php 
+        $books = [
+            "Desring God, by John Piper", 
+            "The Holiness of God, by R.C Sproul", 
+            "The Attributes of God, by A.W Pink"
+        ];
+    ?>
+        <ul>
+            <?php foreach ($books as $book) : ?>
+                <li><?= $book ?></li>
+            <?php endforeach ?>
+
+        </ul> 
+
 
 </body>
 </html>
