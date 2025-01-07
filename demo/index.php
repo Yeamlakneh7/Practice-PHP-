@@ -13,17 +13,32 @@
 
     <?php 
         $books = [
-            "Desring God, by John Piper", 
-            "The Holiness of God, by R.C Sproul", 
-            "The Attributes of God, by A.W Pink"
+            [
+                'name' => 'Providence',
+                'author' => 'John Piper',
+                'published' => '2022',
+                'link' => 'https://desiringgod.com/books'
+            ], 
+            [
+                'name' => "God's Design for the Church",
+                'author' => 'Conrad Mbewe',
+                'published' => '2017',
+                'link' => "https://corssway.com/books"
+            ]
         ];
     ?>
-        <ul>
-            <?php foreach ($books as $book) : ?>
-                <li><?= $book ?></li>
-            <?php endforeach ?>
+ 
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            
+            <li>
+                <a href="<?= $book['link']?>">
+                    <?= $book['name']?>
+                </a>
+            </li>
 
-        </ul> 
+        <?php endforeach;?>
+    </ul>
 
 
 </body>
