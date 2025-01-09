@@ -39,37 +39,21 @@
             ]
         ];
 
-        function filterItems($items, $fn) {
-            
-            $filteredItems = [];
-
-            foreach ($items as $item) {
-
-                if($fn($item)){
-                    
-                    $filteredItems[] = $item;
-
-                }
-            }
-
-            return $filteredItems;
-        }
-
-        $filteredList = filterItems($items, function($item){
-            return ($item['published'] > 2010) && ($item['published'] < 2020);
+        $filteredList = array_filter($items, function($book){
+            return ($book['published'] > 2010) && ($book['published'] < 2020);
         });
 
     ?>
 
     <ul>
 
-        <?php foreach($filteredList as $item): ?>
+        <?php foreach($filteredList as $book): ?>
 
             <li>
 
-                <a href="<?=$item['link'] ?>">
+                <a href="<?=$book['link'] ?>">
 
-                    <?=$item['name'] ?>(<?=$item['published'] ?>) By- <?= $item['author']?>
+                    <?=$book['name'] ?>(<?=$book['published'] ?>) By- <?= $book['author']?>
 
                 </a>
                  
