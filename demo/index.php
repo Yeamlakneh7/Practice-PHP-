@@ -8,15 +8,15 @@
 <body>
 
     <h1>
-        Recommended Books
+        Recommended items
     </h1>
 
     <?php 
-        $books = [
+        $items = [
             [
                 'name' => 'Providence',
                 'author' => 'John Piper',
-                'published' => 2022,
+                'published' => 2020,
                 'link' => 'https://desiringgod.com/books'
             ], 
             [
@@ -30,37 +30,54 @@
                 'author' => 'John Piper',
                 'published' => 2017,
                 'link' => "https://corssway.com/books"
+            ],
+            [
+                'name' => "The Holiness of God",
+                'author' => "R.C. Sproul",
+                'published' => 1985,
+                'link' => "https://ligonier.org"
             ]
         ];
 
-        function filterByAuthor($books, $author) {
-            $filteredList = [];
+        function filterItems($items, $fn) {
+            
+            $filteredItems = [];
 
-            foreach ($books as $book) {
-                if ($book['author'] === $author) {
-                    $filteredList[] = $book;
+            foreach ($items as $item) {
+
+                if($fn($item)){
+                    
+                    $filteredItems[] = $item;
+
                 }
             }
-            return $filteredList;
+
+            return $filteredItems;
         }
+
+        $filteredList = filterItems($items, function($item){
+            return ($item['published'] > 2010) && ($item['published'] < 2020);
+        });
+
     ?>
- 
 
     <ul>
-    
-        <?php foreach(filterByAuthor($books, 'Conrad ') as $book) : ?>
-            
+
+        <?php foreach($filteredList as $item): ?>
+
             <li>
-                <a href="<?=$book['link'] ?>">
-                <?= $book['name']?>(<?=$book['published'] ?>) -By <?=$book['author'] ?>
+
+                <a href="<?=$item['link'] ?>">
+
+                    <?=$item['name'] ?>(<?=$item['published'] ?>) By- <?= $item['author']?>
+
                 </a>
-                
+                 
             </li>
 
         <?php endforeach ?>
+
     </ul>
-    
-    
 
 </body>
 </html>
