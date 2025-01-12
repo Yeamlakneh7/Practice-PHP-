@@ -35,11 +35,11 @@
 // require "index.view.php";
 
 
-$summary = [
-    'courses' => ['PHP Fundamentals', 'MySQL', 'MVC'],
-    'website' => "Laracasts",
-    'daysRequired' => 50,
-    'willBeDone' => TRUE
-];
+// $summary = [
+//     'courses' => ['PHP Fundamentals', 'MySQL', 'MVC'],
+//     'website' => "Laracasts",
+//     'daysRequired' => 50,
+//     'willBeDone' => TRUE
+// ];
 
 require "index.view.php";
