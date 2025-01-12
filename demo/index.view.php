@@ -8,11 +8,18 @@
 <body>
 
     <h1>
-        Recommended items
+        Summary at <?=$summary['website'] ?>
     </h1>
 
-    
     <ul>
+        <?php foreach ($summary['courses'] as $sections): ?>
+        
+        <li><?=$sections ?></li>
+
+        <?php endforeach ?>
+    </ul>
+
+    <!-- <ul>
 
         <?php foreach($filteredList as $book): ?>
 
@@ -28,7 +35,7 @@
 
         <?php endforeach ?>
 
-    </ul>
+    </ul> -->
 
 </body>
 </html>
