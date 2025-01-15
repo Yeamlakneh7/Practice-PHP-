@@ -7,6 +7,7 @@ function dd($value) {
     die();
 }
 
-function urlIs($value) {
-    return $_SERVER('REQUEST_URI') === $value;
+
+function urlIs($url) {
+    return $_SERVER['REQUEST_URI'] === $url;
 } 
