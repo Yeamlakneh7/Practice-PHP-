@@ -1,13 +1,15 @@
 <?php
 
-require("functions.php");
+require("functions.php"); 
 
-$uri = dd($_SERVER['REQUEST_URI']);
-
-if ($uri === '/phpProject/demo/controllers/') {
-    require("controllers/index.php");
-} else if ($uri === '/phpProject/demo/controllers/about') {
-    require("controllers/about.php");
-} else if ($uri === '/phpProject/demo/controllers/contact') {
-    require("controllers/contact.php");
+if ($_SERVER['REQUEST_URI'] === "/demo/") {
+    require "controllers/index.php";
+} elseif ($_SERVER['REQUEST_URI'] === "/about/") {
+    require "controllers/about.php";
+} elseif ($_SERVER['REQUEST_URI'] === "/contact/") {
+    require "controllers/contact.php";
+} else {
+    echo "404 Not Found";
 }
+
+$uri = dd($_SERVER);
