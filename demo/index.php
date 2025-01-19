@@ -2,14 +2,14 @@
 
 require("functions.php");
 
-if ($_SERVER['REQUEST_URI'] === "/demo/") {
-    require "controllers/index.php";
-} elseif ($_SERVER['REQUEST_URI'] === "/demo/about") {
-    require "controllers/about.php";
-} elseif ($_SERVER['REQUEST_URI'] === "/demo/contact") {
-    require "controllers/contact.php";
-} else {
-    echo "404 Not Found";
-}
+$url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$uri = dd($_SERVER);
+$routes = [
+    '/demo/' => 'controllers/index.php',
+    '/demo/about' => 'controllers/about.php',
+    '/demo/contact' => 'controllers/contact.php',
+];
+
+if (array_key_exists($url, $routes)) {
+    require $routes[$url];
+}
