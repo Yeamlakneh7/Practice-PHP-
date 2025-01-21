@@ -7,7 +7,7 @@ $dsn = "mysql:host=127.0.0.1;dbname=myapp;user=root;password=MySQL@1552;";
 
 $pdo = new PDO($dsn);
 
-$statement = $pdo->prepare('select * from posts');
+$statement = $pdo->prepare('select * from posts where id = 1');
 
 $statement->execute();
 
