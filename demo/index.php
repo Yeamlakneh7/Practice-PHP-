@@ -28,8 +28,9 @@ class Database {
 }
 
 $db = new Database();
-$posts = $db->query('SELECT * from posts where id = 1')->fetchAll(PDO::FETCH_ASSOC);
+$posts = $db->query('SELECT * from posts')->fetch(PDO::FETCH_ASSOC);
 
-foreach ($posts as $post) {
-    echo "<li>{$post['Title']}</li>";
-}
+dd($posts['Title']);
+// foreach ($posts as $post) {
+//     echo "<li>{$post['Title']}</li>";
+// }
