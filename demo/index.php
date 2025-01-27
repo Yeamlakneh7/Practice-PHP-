@@ -3,15 +3,32 @@
 require("functions.php");
 // require("routes.php");
 
-$dsn = "mysql:host=127.0.0.1;dbname=myapp;user=root;password=MySQL@1552;";
+class Database {
 
-$pdo = new PDO($dsn);
+    public $connection;
 
-$statement = $pdo->prepare('select * from posts');
+    public function __construct(){
+        
+        $dsn = "mysql:host=127.0.0.1;dbname=myapp;user=root;password=MySQL@1552;";
 
-$statement->execute();
+        $this->connection = new PDO($dsn);
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function query($query){
+        
+        $statement = $this->connection->prepare($query);
+        
+        $statement->execute();
+        
+        return $statement;  
+
+    }
+
+}
+
+$db = new Database();
+$posts = $db->query('SELECT * from posts where id = 1')->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($posts as $post) {
     echo "<li>{$post['Title']}</li>";
