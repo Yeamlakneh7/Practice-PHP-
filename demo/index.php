@@ -4,8 +4,10 @@ require("functions.php");
 // require("routes.php");
 require("Database.php");
 
-$db = new Database();
-$posts = $db->query('SELECT * from posts')->fetch(PDO::FETCH_ASSOC);
+$config = require("config.php");
+
+$db = new Database($config['database']);
+$posts = $db->query('SELECT * from posts')->fetch();
 
 dd($posts);
 // foreach ($posts as $post) {
