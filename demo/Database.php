@@ -6,9 +6,11 @@ class Database {
 
     public function __construct(){
         
-        $dsn = "mysql:host=127.0.0.1;dbname=myapp;user=root;password=MySQL@1552;";
+        $dsn = "mysql:host=127.0.0.1;dbname=myapp;charset=utf8mb4";
 
-        $this->connection = new PDO($dsn);
+        $this->connection = new PDO($dsn, 'root', 'MySQL@1552', [
+            PDO::ATTR_ERRMODE => PDO::FETCH_ASSOC
+        ]);
 
     }
 
