@@ -7,9 +7,10 @@ require("Database.php");
 $config = require("config.php");
 
 $db = new Database($config['database']);
-$posts = $db->query('SELECT * from posts')->fetch();
+
+$id = ($_GET['id']);
+
+$posts = $db->query("SELECT * from users where id = $id ")->fetch();
+
 
 dd($posts);
-// foreach ($posts as $post) {
-//     echo "<li>{$post['Title']}</li>";
-// }
