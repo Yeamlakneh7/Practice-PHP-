@@ -10,7 +10,9 @@ $db = new Database($config['database']);
 
 $id = ($_GET['id']);
 
-$posts = $db->query("SELECT * from users where id = $id ")->fetch();
+$query = "SELECT * from users where id = :id";
+
+$posts = $db->query($query, ['id' => $id] )->fetch();
 
 
 dd($posts);
