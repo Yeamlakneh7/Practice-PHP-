@@ -6,13 +6,15 @@ require("Database.php");
 
 $config = require("config.php");
 
+// $db = new Database($config['database']);
+
+
 $db = new Database($config['database']);
 
-$id = ($_GET['id']);
+$posts = $db->query("SELECT * FROM posts ")->fetchAll();
 
-$query = "SELECT * from users where id = :id";
-
-$posts = $db->query($query, ['id' => $id] )->fetch();
-
+// foreach ($posts as $post) {
+//     echo "<li>" . $post['title'] . "</li>";
+// }
 
 dd($posts);
