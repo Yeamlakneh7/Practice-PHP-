@@ -3,13 +3,14 @@
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
-            <img class="size-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="size-8" src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
           </div>
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/demo/" class="<?= urlIs('/demo/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700' ?> rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
               <a href="/demo/about" class="<?= urlIs('/demo/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700' ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>              
+              <a href="/demo/notes" class="<?= urlIs('/demo/notes') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700' ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notes</a>              
               <a href="/demo/contact" class="<?= urlIs('/demo/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700' ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
             </div>
           </div>
