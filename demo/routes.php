@@ -27,13 +27,8 @@ function abort($code = 404) {
     
     http_response_code($code);
 
-    if ($code == 403){
-        require 'views/403.php';
-    }
-    
-    else {
-        require 'views/404.php';
-    }
+    require "views/$code.php";
+
     die();
 
 }

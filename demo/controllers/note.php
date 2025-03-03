@@ -9,15 +9,10 @@ $db = new Database($config['database']);
 $id = $_GET['id'];
 $currentUser = 1;
 
-$note = $db->query("SELECT * FROM notes where id=:id", ['id' => $id])->fetch();
+$note = $db->query("SELECT * FROM notes where id=:id", ['id' => $id])->findOrAbort();
 
-if(!$note){
-    abort();
-}
+authenticate($note['user_id'] == $currentUser);
 
-if ($note['user_id'] !== $currentUser) {
-    abort(Response::FORBIDDEN);
-}
 
 
 require "views/note.view.php";

@@ -3,7 +3,7 @@
 class Database {
 
     public $connection;
-    
+    public $statement;
 
     function __construct($config){
 
@@ -15,11 +15,27 @@ class Database {
 
     function query($query, $params = []){
         
-        $statement = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
         
-        $statement->execute($params);
+        $this->statement->execute($params);
 
-        return $statement;
+        return $this;
+    }
+
+    function find(){
+        return $this->statement->fetch();
+    }
+
+    function findOrAbort(){
+        $result = $this->find();
+        if(!$result){
+            abort();
+        }
+        return $result;
+    }
+
+    function getAll(){
+        return $this->statement->fetchAll();
     }
     
 }
